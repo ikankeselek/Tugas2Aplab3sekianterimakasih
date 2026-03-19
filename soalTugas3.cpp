@@ -1,23 +1,31 @@
-/*
-Lembaga Kemahasiswaan USU memiliki sebuah program yang menentukan kategori beasiswa yang dapat diterima oleh mahasiswa yang mengajukan beasiswa. Penentuan beasiswa ini didasarkan pada Indeks Prestasi (IP) mahasiswa dan Gaji Orang Tua.
+#include <iostream>
+using namespace std;
 
-Ketentuan Penerimaan Beasiswa
-1. Mahasiswa dengan IP ≥ 3.5 otomatis berhak atas beasiswa kategori 4.
-2.  Mahasiswa berhak atas beasiswa kategori 1 jika:
-- Gaji orang tua kurang dari 1 juta rupiah.
-- IP mahasiswa kurang dari 3.5.
-3. Mahasiswa berhak atas beasiswa kategori 2 atau 3 jika:
-- Gaji orang tua berada di rentang 1 juta - 5 juta rupiah.
-- IP mahasiswa kurang dari 3.5:
-    - Jika IP ≥ 2.0, berhak atas beasiswa kategori 3.
-    - Jika IP < 2.0, berhak atas beasiswa kategori 2.
-4. Mahasiswa yang tidak memenuhi kriteria di atas tidak mendapatkan beasiswa.
+int main() {
+    float ip, gaji;
+    cout << "Masukkan IPK: ";
+    cin >> ip;
+     if (ip < 1 || ip > 4.0) {
+        cout << "IPK tidak valid!";
+    
+    }
+    else {
+    cout << "Masukkan gaji orang tua: ";
+    cin >> gaji;
+   if (ip >= 3.5) {
+        cout << "Kategori 4";
+    } else if (gaji < 1.0) {
+        cout << "Kategori 1";
+    } else if (gaji >= 1.0 && gaji <= 5.0) {
+        if (ip >= 2.0) {
+            cout << "Kategori 3";
+        } else {
+            cout << "Kategori 2";
+        }
+    } else {
+        cout << "Tidak berhak mendapatkan beasiswa";
+    }
 
-Buatlah program yang membaca 2 input berupa bilangan riil (float):
-IP mahasiswa (contoh: 3.51)
-Gaji orang tua dalam juta rupiah (contoh: 1.5, yang berarti 1.5 juta rupiah)
-Program harus mencetak kategori beasiswa yang diperoleh mahasiswa sesuai dengan ketentuan di atas. Jika mahasiswa tidak berhak atas beasiswa, cetak “Tidak berhak mendapatkan beasiswa”.
-
-*/
-
-// Hapus komentar yang berisi soal sebelum memasukkan kode untuk jawaban
+    return 0;
+}
+}
