@@ -1,17 +1,52 @@
-/*
-Capt Dodo memiliki beberapa pilihan transportasi untuk bepergian dari tempat magang ke kampus dan kembali lagi:
+#include <iostream>
+using namespace std;
 
-- Bus Hijau: Biaya Rp5.000. Beroperasi dari pukul 7 -18.
-- Bus Linus : Gratis, tetapi hanya tersedia pada pukul 6 - 8 dan 15 - 17.
-- Angkot: Biaya Rp10.000. Selalu tersedia tanpa batasan waktu.
+int main() {
+    int berangkat, pulang;
+    int bb, bp;
+    string Transber, Transpul;
 
-Karena Capt dodo adalah seorang anak kos, ia ingin menghemat pengeluaran transportasi semaksimal mungkin. 
+    cout << "Pilihan transportasi:\n";
+    cout << "- Bus Linus : Gratis (06-08, 15-17)\n";
+    cout << "- Bus Hijau : Rp5000 (07-18)\n";
+    cout << "- Angkot    : Rp10000 (Setiap saat)\n\n";
 
-Diberikan dua input, yaitu:
-Jam keberangkatan (bilangan bulat 1-24)
-Jam kepulangan (bilangan bulat 1-24)
+    cout << "Masukkan jam keberangkatan (1-24): ";
+    cin >> berangkat;
+    cout << "Masukkan jam kepulangan (1-24): ";
+    cin >> pulang;
 
-Buatlah program untuk menentukan moda transportasi yang dipilih untuk berangkat dan pulang dengan total biaya seminimal mungkin. 
-*/
+    if (berangkat < 1 || berangkat > 24 || pulang < 1 || pulang > 24) {
+        cout << "\nJam tidak valid!\n";
+        return 0;
+    }
 
-// Hapus komentar yang berisi soal sebelum memasukkan kode untuk jawaban
+    if ((berangkat >= 6 && berangkat <= 8) || (berangkat >= 15 && berangkat <= 17)) {
+        Transber = "Bus Linus";
+        bb = 0;
+    } else if (berangkat >= 7 && berangkat <= 18) {
+        Transber = "Bus Hijau";
+        bb = 5000;
+    } else {
+        Transber = "Angkot";
+        bb = 10000;
+    }
+
+    if ((pulang >= 6 && pulang <= 8) || (pulang >= 15 && pulang <= 17)) {
+        Transpul = "Bus Linus";
+        bp = 0;
+    } else if (pulang >= 7 && pulang <= 18) {
+        Transpul = "Bus Hijau";
+        bp = 5000;
+    } else {
+        Transpul = "Angkot";
+        bp = 10000;
+    }
+
+ 
+    cout << "\nBerangkat : " << Transber << " (Rp" << bb << ")\n";
+    cout << "Pulang    : " << Transpul << " (Rp" << bp << ")\n";
+    cout << "-----------------------------\n";
+    cout << "Total biaya: Rp" << bb + bp << "\n";
+
+}
